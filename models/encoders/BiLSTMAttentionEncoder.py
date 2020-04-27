@@ -1,5 +1,5 @@
 import torch.nn as nn
-from layers.attention import WeightedAttention
+from layers import WeightedAttention
 import logging
 
 logger = logging.getLogger(__name__)
@@ -15,7 +15,7 @@ class BiLSTMAttentionEncoder(nn.Module):
 
         self.attention = WeightedAttention(self.args.lstm_hidden_dim, self.args.lstm_hidden_dim * 2)
         # 可替换成 gru, rnn 之类的
-        self.rnn = nn.LSTM(self.args.embedding_dim,
+        self.rnn = nn.LSTM(self.args.word_embedding_dim,
                            self.args.lstm_hidden_dim // 2,
                            bidirectional=True,
                            batch_first=True)

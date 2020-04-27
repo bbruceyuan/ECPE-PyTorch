@@ -1,0 +1,2 @@
+class ConstructPairTrainer(object):
+    pass
